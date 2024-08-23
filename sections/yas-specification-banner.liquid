@@ -1,0 +1,120 @@
+<div class="usp_section"> 
+    <div class="usp_container">
+        {%- for block in section.blocks -%}
+            <div class="usp_item">
+                <div class="usp__image"><img data-src="{{ block.settings.image | img_url: '159x156' }}" class="lazyload" alt="{{ block.settings.title}}"  width="159" height="156"></div>
+                <h2 class="usp__heading">{{ block.settings.title}}</h2>
+                <div class="usp__text"><p>{{ block.settings.text}}</p></div> 
+            </div>
+        {%- endfor -%}
+    </div>  
+</div>
+
+{% schema %}
+  {
+    "name": "yas-specification-banner",
+    "class": "yas-specification-banner usp",
+    "settings": [
+      
+    ],
+    "blocks": [
+      {
+        "type": "item",
+        "name": "item usp",
+        "settings": [
+          {
+            "id": "image",
+            "type": "image_picker",
+            "label": "Image collection"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "yas-specification-banner"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+.usp_container{
+    display:flex;
+    justify-content:space-between;
+    padding:max(3.5vw,50px) 11vw;  
+}
+.usp__image img{
+    height:100%;
+    width:auto
+}
+.usp__image{
+    height:max(3.7vw,53px); 
+    display:flex;
+    justify-content:center
+}
+h2.usp__heading{
+    font-family:UrbanoBC;
+    font-size:max(1.1vw,16px); 
+    line-height:1.25;
+    text-transform:uppercase;
+    text-align:center;
+    margin:0;
+    padding-top:max(1vw,15px);
+    color:rgb(var(--color-black))
+}
+.usp__text{
+    font-family:GIR;
+    font-size:max(1.1vw,16px); 
+    line-height:1.6;
+    text-align:center;
+    color: #000;
+}
+.usp__text p{
+    margin:0
+}
+.usp_item{
+    width:24%
+}
+@media only screen and (max-width: 989px){
+    .usp_container{
+      padding: 0px 16px 35px;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+    .usp_item{
+        width:29%;
+        margin-bottom: 15px;
+    }
+    .usp__image{
+        height:33px;
+    }
+    .usp_container{
+        
+    }
+    h2.usp__heading{
+        padding-top:13px;
+        padding-bottom:4px;
+        font-size:12px;
+    }
+    .usp__text{
+        font-size:12px;
+    }
+    .usp_item{
+        width:32%;
+    }
+}  
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

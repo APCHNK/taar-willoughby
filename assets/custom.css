@@ -1,0 +1,84 @@
+.template-list-collections #shopify-section-list-collections-template>.grid{display:flex;justify-content:center}
+.slide__hideCont{display:none!important}
+.select__form-product{display:flex;gap:15px;margin-top:10px;margin-bottom:25px;flex-wrap:wrap}
+.select__form-product input{display:none}
+.select__form-product .select__form-product-radio{width:30px;height:20px;background-color:#fff;position:relative;cursor:pointer}
+.select__form-product input:checked+.select__form-product-radio::after{width:100%;height:1px;background-color:#000;content:"";position:absolute;bottom:-5px}
+.product__photo{grid-template-columns:1fr}
+@media only screen and (min-width:1025px){
+  .product__photo__img{width:40%;height:100%;object-fit:contain}
+  .prod_grid__item{justify-content:center;display:flex}
+
+}
+@media only screen and (min-width:1025px) and (max-width: 1285px){
+  .template-product .product_template__grid {
+    display: grid;
+    grid-template-columns: 50% auto;
+    grid-template-areas: none;
+    grid-column-gap: 40px;
+    padding: 0 30px;
+  }
+  .template-product  .SmoothSlide .prod_grid__item {
+    min-width: 50vw;
+    box-sizing: content-box;
+  }
+}
+.product__photosmooth-mob{
+  display: none;
+}
+.product__photo .swiper-button-next, .product__photo  .swiper-button-prev{
+    display: none;
+  }
+ @media (max-width: 1024px){
+  .SmoothSlide.product__photosmooth-desk{
+     display: none !important;
+  }
+  .template-product  .SmoothSlide .prod_grid__item {
+    text-align: center;
+  }
+  .template-product .product__details-content .product__form--add-to-cart {
+    margin: 0 auto 30px;
+  }
+  .product__photosmooth-mob{
+    display: grid;
+    position: relative;
+  }
+  .product__photo .swiper-button-next:after, .product__photo  .swiper-button-prev:after{
+    content: unset;
+  }
+  .product__photo .swiper-button-next, .product__photo  .swiper-button-prev{
+    display: block;
+  }
+   .product__photosmooth-mob  .swiper-button-next
+   {
+     display: block;
+   }
+  .product__photosmooth-mob .swiper-rtl 
+   {
+      display: block;
+   }
+  .product__photosmooth-mob    .swiper-button-prev
+   {
+     display: block;
+   }
+   .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled
+   {
+      display: block;
+   }
+   .swiper-button-next, .swiper-rtl .swiper-button-prev
+   { display: block;}
+ 
+  .product__photo .swiper-button-next svg{
+      transform: rotate(-90deg);
+      color: #000;
+     
+  }
+  .product__photo .swiper-button-prev svg{
+      transform: rotate(90deg);
+      color: #000;
+    
+  }
+   
+   
+
+}

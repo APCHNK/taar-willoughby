@@ -1,0 +1,45 @@
+  <style>
+  
+   .rightimg  {
+    float: right; /* Выравнивание по правому краю  */ 
+   margin-left: 5px;
+     border-left: 1px solid black;
+     padding-left: 10px;
+   }
+    .imgright
+    {
+    	width: 300px;
+      height: 100%;
+    }
+    .colcont
+    {
+    	width: 500px;
+      margin: 0 auto;
+    }
+    @media (max-width: 767px)
+    {
+            .rightimg  {
+      float: right; /* Выравнивание по правому краю  */ 
+     margin-left: 5px;
+       border-left: 1px solid black;
+       padding-left: 10px;
+     }
+      .imgright
+      {
+          width: 200px;
+        height: 100%;
+      }
+      .colcont
+      {
+          width: 330px;
+        margin: 0 auto;
+      }
+    }
+      
+  </style>
+
+<div class="colcont">
+  <h2>{{page.title}}</h2>
+  <p>
+     {{page.content}}</p>
+</div>

@@ -1,0 +1,66 @@
+<div class="HeroBanner {{section.class}}" style="text-align: center;">
+  
+  <a href="{{ section.settings.image_hyperlink }}">
+  
+    <picture style="align: center;">
+      {% assign img_url_820 = section.settings.image820 | img_url: '820x' %}
+      <source type="image/webp" media="(max-width: 820px)" data-srcset="{{ img_url_820 }}" srcset="{{ img_url_820 }}">
+      <source media="(max-width: 820px)" data-srcset="{{ img_url_820 }}" srcset="{{ img_url_820 }}">
+      {% assign img_url_full = section.settings.image | img_url: '1000x' %}
+      <source type="image/webp" data-srcset="{{ img_url_full }}" srcset="{{ img_url_full }}">
+      <img class="lazyload" class="Herobanner_image" src="{{ img_url_full }}" data-was-processed="true">
+    
+    </picture>
+    
+  </a>
+  
+</div>
+
+
+{% schema %}
+  	{
+    	"name": "Hero banners",
+		"class":"Hero-banner",
+    	"settings":
+		[
+  			{
+			"type": "image_picker",
+			"id": "image",
+			"label": "Image"
+			},
+			{
+			"type": "image_picker",
+			"id": "image820",
+			"label": "Image (Mobile)"
+			},
+			{
+			"type": "image_picker",
+			"id": "image_bottom",
+			"label": "Bottom text (image)"
+			},
+			{
+			"type": "url",
+			"id": "image_hyperlink",
+			"label": "Hyperlink"
+			},
+			{
+			"type": "text",
+			"id": "image_class",
+			"label": "Image Class"
+			}
+		],
+		"presets":
+		[
+		{
+			"name": "Hero banners",
+			"category": "Image"
+		}
+		]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

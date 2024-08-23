@@ -1,0 +1,100 @@
+  <style>
+  
+   .rightimg  {
+    float: right; /* Выравнивание по правому краю  */ 
+   margin-left: 5px;
+     border-left: 1px solid black;
+     padding-left: 10px;
+   }
+    .imgright
+    {
+    	width: 300px;
+      height: 100%;
+    }
+    .colcont
+    {
+    }
+    .section-about {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 20px;
+      max-width: 1044px;
+margin: 0 auto;
+width: 100%;
+    }
+    .section-about p {
+      font-size: 24px;
+font-family: Times;
+    }
+    .section-about strong {
+      text-transform: uppercase;
+
+    }
+    .img-full img {
+      width: 100%;
+      max-height: 700px;
+      object-fit: cover;
+      object-position: 100% 64%;
+    }
+    .section-about .text-title {
+      text-align: center;
+      width: 100%;
+      padding: 30px 0;
+    }
+    .section-about .sa-col {
+      width: 50%;
+padding: 0 20px;
+    }
+    .section-desk {
+      display: flex;
+    }
+    .section-mob {
+      display: none;
+    }
+    @media (max-width: 767px)
+    {
+      .section-about {
+        padding: 0 10px;
+      }
+      .section-about .imgtop {
+        margin-bottom: 20px;
+      }
+    .section-about .text-title {
+      padding: 0 20px;
+        margin-bottom: 20px;
+    }
+    .section-about p {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .section-about .sa-col {
+      padding: 0 20px;
+    }
+      {% if request.path contains 'new' %}
+        {% else %}
+    .section-desk {
+      display: none;
+    }
+        {% endif %}
+    .section-mob {
+      display: flex;
+    }
+            .rightimg  {
+      float: right; /* Выравнивание по правому краю  */ 
+     margin-left: 5px;
+       border-left: 1px solid black;
+       padding-left: 10px;
+     }
+      .imgright
+      {
+          width: 200px;
+        height: 100%;
+      }
+    }
+      
+  </style>
+
+<div class="colcont">
+  <h2 style="display: none;">{{page.title}}</h2>
+     {{page.content}}
+</div>

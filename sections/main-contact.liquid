@@ -1,0 +1,137 @@
+<style>
+  .main-contact
+  {
+    width: 100%;
+    height: 100vh;
+    display:flex;
+    flex-wrap:nowrap;
+    
+  }
+  .photo-contact
+  {
+    width:65%;
+    height: 100%;
+    background: url("{{section.settings.image |img_url: '2000x'}}");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+      
+  }
+      .content-contact
+      {
+       
+       height: 100%;
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: left;
+        padding: 6vw;     
+      }
+      .email
+      {
+       font-size: max(1.1vw,16px);
+        line-height: 1.5;
+        margin-bottom: 20px;
+      
+        
+      }
+  .content-contact h3
+  {
+    margin: 0;
+  }
+    @media (max-width: 768px)
+  {
+     .main-contact
+     {
+      flex-wrap:wrap;
+    
+    }
+    .photo-contact
+    {width: 100%;
+    order: 2;}
+      .content-contact
+    {
+      width: 100%;
+      padding-top: 0;
+      height: unset;
+      order: 1;
+    }
+  }
+</style>
+<div class="main-contact">
+  <div class="photo-contact">
+    
+  </div>
+  <div class="content-contact">
+    <h1>{{ section.settings.title }}</h1>
+    <h3>{{ section.settings.customertitle }}</h3>
+    <div class="email"><a href="mailto:"{{ section.settings.customeremail }}">{{ section.settings.customeremail }}</a></div>
+    <h3>{{ section.settings.presstitle }}</h3>
+    <div class="email"><a href="mailto:{{ section.settings.pressemail }}">{{ section.settings.pressemail }}</a></div>
+    <h3>{{ section.settings.wholesaletitle }}</h3>
+    <div class="email"><a href="mailto:{{ section.settings.wholesaleemail }}">{{ section.settings.wholesaleemail }}</a></div>
+    
+  </div>
+</div>
+<div class="page-width page-container">
+{% schema %}
+  {
+    "name": "Main contact",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+         "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "CONTACT US"
+      },
+      {
+         "type": "text",
+        "id": "customertitle",
+        "label": "Text",
+        "default": "Customer service"
+      },
+       {
+         "type": "text",
+        "id": "customeremail",
+        "label": "Text",
+        "default": "test@test.com"
+      },
+        {
+         "type": "text",
+        "id": "presstitle",
+        "label": "Text",
+        "default": "Press & influencers inquiries"
+      },  {
+         "type": "text",
+        "id": "pressemail",
+        "label": "Text",
+        "default": "test@test.com"
+      },
+       {
+         "type": "text",
+        "id": "wholesaletitle",
+        "label": "Text",
+        "default": "Wholesale inquiries"
+      },
+        {
+         "type": "text",
+        "id": "wholesaleemail",
+        "label": "Text",
+        "default": "test@test.com"
+      }
+      
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

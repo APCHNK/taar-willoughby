@@ -1,0 +1,51 @@
+{% raw %}
+  {% assign swatch_options = '' | downcase | replace: ', ', ',' | split: ","  %}
+  {% assign images_count = product.images | size %}
+  {% assign variants_count = product.variants | size %}
+  {% assign options_count   = product.options | size %}
+  {% assign featured_image = 'https://cdn.shopify.com/s/images/themes/product-1.png' %}
+  {% if product.featured_image %}
+    {% assign featured_image = product.featured_image.src %}
+  {% endif %}
+
+            
+      <div class="product-item grid__item widescreen--one-third large-up--one-third medium--one-half small--one-half">
+        <div class="product-item__link-wrapper">
+          <a class="product-item__link product-item__image--margins" href="{{ product.url }}">
+          <span class="image-wrapper">
+            {% if product.featured_image %}
+              <noscript>
+                <img class="product-item__image-no-js" src="{{ product.featured_image.src | img_url: '1024x' }}" alt="{{ product.featured_image.alt | escape }}">
+              </noscript>
+              <div class="product-item__image-container" style="max-width: {{ 600 | times: product.featured_image.aspect_ratio | round }}px;">
+                <div class="product-item__image-wrapper" style="padding-top:{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%">
+                  <img class="product-item__image" src="{{ product.featured_image.src | img_url: '500x500' }}" alt="{{ product.featured_image.alt | escape }}">
+                </div>
+              </div>
+            {% else %}
+              <img src="https://cdn.shopify.com/s/images/themes/product-1.png" alt="{{ product.title | escape }}">
+            {% endif %}
+              <span class="product-item__meta">
+                <span class="product-item__meta__inner">
+                  <p class="product-item__vendor">{{ product.vendor }}</p>
+                  <p class="product-item__title">{{ product.title }}</p>
+                  <p class="product-item__price-wrapper">
+                    {% if product.compare_at_price > product.price %}
+                      <s class="product-item__price--reg">{{ product.compare_at_price | money_without_trailing_zeros }}</s>
+                      <span class="product-item__price--sale">{{ product.price | money_without_trailing_zeros }}</span>
+                    {% else %}
+                      {{ product.price | money_without_trailing_zeros }}                    {% endif %}
+                  </p>
+                  {% unless product.available %}
+                    <p class="product-item__sold-out">Sold out</p>
+                  {% endunless %}
+                </span>
+              </span>
+              {% if product.compare_at_price > product.price %}
+                <span class="product-item__badge">Sale</span>
+              {% endif %}
+            </span>
+          </a>
+        </div>
+      </div>
+      {% endraw %}

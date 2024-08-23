@@ -1,0 +1,199 @@
+<style>
+  .new-article
+  {
+  	width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .new-article-image
+  {
+    padding-top: 200px;
+  	margin: 0 auto;
+    width: 80%;
+  }
+  .new-article-header
+  {
+  	font-size: 60px;
+    padding-top: 50px;
+    margin: 0 auto;
+    width: 60%;
+    text-align: center;
+    padding-bottom: 50px;
+letter-spacing: 25px;
+        
+    
+font-family: 'Old Standard TT', serif;
+  }
+    .new-article-1block
+  {
+      width: 1000px;
+  font-size: 24px;
+    margin: 0px auto;
+      line-height: 1.5em;
+    font-family: 'Old Standard TT', serif;
+  }
+  .new-article-1block p:first-line
+  {
+  	font-size: 1.2em;
+    font-weight: bold;
+    color: black;
+    line-height: 1.5em;
+    padding-bottom: 30px;
+  }
+  .new-article-1block p:first-letter
+  {
+     float: left;
+  	font-size: 7.9em;
+    font-weight: bold;
+    color: black;
+    line-height: 1.05em;
+    font-family: 'Old Standard TT', serif;
+  }
+  .new-article-columns
+  {
+    font-size:20px;
+   
+    padding-top: 50px;
+
+    
+   	width: 1000px;
+    height: auto;
+    margin: 0 auto;
+        margin-bottom: 150px;
+    
+  overflow: hidden;
+
+  -webkit-column-width: 150px;
+    -moz-column-width: 150px;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-rule: 1px solid #000;
+    -moz-column-rule: 1px solid #000;
+    column-rule: 1px solid #000;
+    font-family: 'Old Standard TT', serif;
+    
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    grid-template-rows: auto auto;
+  }
+  .new-article-columns p
+  {
+	 	padding-left: 40px;
+    	height: fit-content;
+  }
+  .new-article-columns p:first-child
+  {
+	 	grid-column: 1;
+		grid-row: 1 / span 2;
+    	padding-right: 40px;
+    	padding-left: 0px;
+  }
+  .new-article-columns p:nth-child(2)
+  {
+    padding: 0 40px;
+    border-left: 2px solid;
+    border-right: 2px solid;
+  }
+  .new-article-columns p:last-child:not(.new-article-columns p:nth-child(3))
+  {
+	padding-left: 0px;
+    grid-column: 2 / span 3;
+    grid-row: 2;
+    font-size: 3.2em;
+    line-height: 1em;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: bold;
+  }
+ @media only screen and (max-width: 1300px) {
+  .new-article-image
+   {
+     padding: 0;
+     margin: 0 auto;
+	width: 100%;
+   }
+   .new-article-header {
+      padding-bottom: 25px;
+      letter-spacing: normal;
+      font-size: 50px;
+      padding-top: 25px;
+      width: 90%;
+   }
+  .new-article-1block
+   {
+     width: 90%;
+  	font-size: 16px;
+   }
+  .new-article-columns
+   {
+     width: 90%;
+      display: flex;
+      grid-template-columns: 100%;
+      column-count: 1;
+      flex-direction: column;
+     padding-top: 25px;
+	font-size: 16px;
+     margin-bottom: 25px;
+   }
+   .new-article-columns p {
+   	border-left: 0px solid!important;
+	border-right: 0px solid!important;
+         padding: 0!important;
+   }
+   .new-article-columns p:last-child:not(.new-article-columns p:nth-child(3)) {
+     	text-align: center;
+   }
+   .new-article-columns p:last-child:not(.new-article-columns p:nth-child(3)) {
+      font-size: 3em;
+      margin-top: 35px;
+   }
+    .new-article-1block p:first-letter
+  {
+     float: left;
+  	font-size: 4em;
+    font-weight: bold;
+    color: black;
+    line-height: 0.5em;
+    font-family: 'Old Standard TT', serif;
+  }
+ }
+</style>
+<div class="new-article">
+
+  <div class="new-article-image">
+   	<img src="{{article.image.src |img_url: 'master'}}"/>
+    
+  </div>
+  
+  <div class="new-article-header">
+    {{article.title}}
+  </div>
+  
+  <div class="new-article-1block">
+		{{article.excerpt}}  
+   </div>
+  
+  <div class="new-article-columns">
+		{{article.content}}
+  </div>
+  
+  
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
